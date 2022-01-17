@@ -24,7 +24,7 @@ def main():
     input_data = []
 
     st.markdown(f'<h1 style="color:#faca2b;font-size:40px;">{"Wellcome to Loan Eligibility Prediction Model"}</h1>', unsafe_allow_html=True)
-    image = Image.open('C:/Users/Kiran/Desktop/Jupyter_ notebook/ML_project/loan.jpg')
+    image = Image.open('loan.jpg')
 
     st.image(image,width = 700)
     
