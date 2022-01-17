@@ -1,11 +1,11 @@
 import pickle
 import streamlit as st
 import numpy as np
-from PIL import Image
+
 
 #loading the model
 
-loaded_model = pickle.load(open("C:/Users/Kiran/Desktop/Jupyter_ notebook/ML_project/trained_logistic_model.sav","rb"))
+loaded_model = pickle.load(open("trained_logistic_model.sav","rb"))
 
 
 def Prediction(input_value):
