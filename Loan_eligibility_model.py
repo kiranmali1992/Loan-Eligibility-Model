@@ -2,15 +2,14 @@ import pickle
 import streamlit as st
 import numpy as np
 
-
 #loading the model
 
 loaded_model = pickle.load(open("trained_logistic_model.sav","rb"))
 
-
+#defining the function
 def Prediction(input_value):
 
-    #convert it into array
+    #convert it into 1d array
     input_value = np.array(input_value).reshape(1,-1)
 
     Prediction = loaded_model.predict(input_value)
@@ -22,8 +21,9 @@ def Prediction(input_value):
       
 def main():
     input_data = []
-
+    
     st.markdown(f'<h1 style="color:#faca2b;font-size:40px;">{"Wellcome to Loan Eligibility Prediction Model"}</h1>', unsafe_allow_html=True)
+    
     image = Image.open('loan.jpg')
 
     st.image(image,width = 700)
@@ -33,16 +33,13 @@ def main():
 
 #1......................
     gender = st.selectbox("Gender",("Male","Female"))
-
-
+    
     if gender == "Male":
         input_data.append(1)
     else:
         input_data.append(0)
 #2........................
 
-    
-    
     Married = st.selectbox("Married",("yes","No"))
 
     if Married == "yes":
@@ -66,7 +63,6 @@ def main():
 
     Self_employed = st.selectbox("Self Employed" ,("yes","No"))
     
-
     if Self_employed == "yes":
         input_data.append(1)
     else:
@@ -78,7 +74,6 @@ def main():
 #6....................
 
     Coapplicant_income = st.text_input("Coapplicant Income")
-
     input_data.append(Coapplicant_income)
 #7..........................
     Loan_amount = st.text_input("Loan Amount (Monthly)")
@@ -102,7 +97,6 @@ def main():
     else:
         input_data.append(2)
 
-    
     #Code for prediction
     check = ""
 
